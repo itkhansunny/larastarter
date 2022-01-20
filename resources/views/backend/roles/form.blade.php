@@ -15,7 +15,7 @@
             <div>Roles</div>
         </div>
         <div class="page-title-actions">
-            <a href="{{ route('app.roles.index') }}" class="btn-shadow mr-3 btn btn-danger">
+            <a href="{{ route('app.roles.index') }}" class="btn btn-primary">
                 <i class="fas fa-arrow-circle-left"></i>
                 Back to list
             </a>
@@ -35,12 +35,6 @@
                         <h5>Manage Roles</h5>
                     </div>
                     <div class="form-group">
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="select-all">
-                            <label class="custom-control-label" for="select-all">Select All</label>
-                        </div>
-                    </div>
-                    <div class="form-group">
                         <label for="name">Role Name</label>
                         <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ $role->name??old('email') }}" required autofocus>
                         @error('name')
@@ -58,6 +52,12 @@
                                 </span>
                             @enderror
                         </p>
+                    </div>
+                    <div class="form-group">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="select-all">
+                            <label class="custom-control-label" for="select-all">Select All</label>
+                        </div>
                     </div>
                     @forelse ($modules->chunk(2) as $key=>$chunks )
                         <div class="form-row">
