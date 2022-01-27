@@ -17,7 +17,7 @@
         <div class="page-title-actions">
             <a href="{{ route('app.users.create') }}" class="btn-shadow mr-3 btn btn-primary">
                 <i class="fas fa-plus-circle"></i>
-                Create Role
+                Create User
             </a>
         </div>
     </div>
@@ -47,7 +47,7 @@
                                         <div class="widget-content-left mr-3">
                                             <div class="widget-content-left">
                                                     <img width="40" class="rounded-circle"
-                                                        src="{{ config('app.placeholder').'160.png' }}" alt="User Avatar">
+                                                        src="{{ $user->getFirstMediaUrl('avatar') != null ? $user->getFirstMediaUrl('avatar') : config('app.placeholder').'160.png' }}" alt="User Avatar">
                                                 </div>
                                         </div>
                                         <div class="widget-content-left flex2">
@@ -74,6 +74,10 @@
                             </td>
                             <td class="text-center">{{ $user->created_at->diffForHumans() }}</td>
                             <td class="text-center">
+                                <a href="{{ route('app.users.show', $user->id) }}" class="btn btn-info btn-sm">
+                                    <i class="fas fa-eye"></i>
+                                    <span>Show</span>
+                                </a>
                                 <a href="{{ route('app.users.edit', $user->id) }}" class="btn btn-info btn-sm">
                                     <i class="fas fa-edit"></i>
                                     <span>Edit</span>
