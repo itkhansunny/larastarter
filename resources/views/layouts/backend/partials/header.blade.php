@@ -69,17 +69,15 @@
                             <div class="btn-group">
                                 <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                                     class="p-0 btn">
-                                    <img width="42" class="rounded-circle" src="/assets/images/avatars/1.jpg"
+                                    <img width="42" class="rounded-circle" src="{{ Auth::user()->getFirstMediaUrl('avatar') }}"
                                         alt="">
                                     <i class="fa fa-angle-down ml-2 opacity-8"></i>
                                 </a>
                                 <div tabindex="-1" role="menu" aria-hidden="true"
                                     class="dropdown-menu dropdown-menu-right">
-                                    <button type="button" tabindex="0" class="dropdown-item">User
-                                        Account</button>
-                                    <button type="button" tabindex="0" class="dropdown-item">Settings</button>
-                                    <h6 tabindex="-1" class="dropdown-header">Header</h6>
-                                    <button type="button" tabindex="0" class="dropdown-item">Actions</button>
+                                    <a href=" {{ route('app.profile.index') }} " type="button" tabindex="0" class="dropdown-item">Profile</a>
+                                    <a href="{{ route('app.profile.password.change') }}" type="button" tabindex="0" class="dropdown-item">Changes Password</a>
+                                    <a href="" type="button" tabindex="0" class="dropdown-item">Settings</a>
                                     <div tabindex="-1" class="dropdown-divider"></div>
                                     <button type="button" tabindex="0" class="dropdown-item" onclick="event.preventDefault();
                                     document.getElementById('logout-form').submit();">Log Out</button>

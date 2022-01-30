@@ -91,5 +91,56 @@ class PermissionSeeder extends Seeder
             'Name'      => 'Delete Backup',
             'slug'      => 'app.backups.destroy'
         ]);
+
+        // Pages
+        $moduleAppPages = Module::updateOrCreate(['name' => 'Page']);
+        Permission::updateOrCreate([
+            'module_id' => $moduleAppPages->id,
+            'Name'      => 'Access Pages',
+            'slug'      => 'app.pages.index'
+        ]);
+        Permission::updateOrCreate([
+            'module_id' => $moduleAppPages->id,
+            'Name'      => 'Create Page',
+            'slug'      => 'app.pages.create'
+        ]);
+        Permission::updateOrCreate([
+            'module_id' => $moduleAppPages->id,
+            'Name'      => 'Edit Page',
+            'slug'      => 'app.pages.edit'
+        ]);
+        Permission::updateOrCreate([
+            'module_id' => $moduleAppPages->id,
+            'Name'      => 'Delete Page',
+            'slug'      => 'app.pages.destroy'
+        ]);
+
+        // Menus
+        $moduleAppMenus = Module::updateOrCreate(['name' => 'Menu']);
+        Permission::updateOrCreate([
+            'module_id' => $moduleAppMenus->id,
+            'Name'      => 'Access Menus',
+            'slug'      => 'app.menus.index'
+        ]);
+        Permission::updateOrCreate([
+            'module_id' => $moduleAppMenus->id,
+            'Name'      => 'Access Menu Builder',
+            'slug'      => 'app.menus.builder'
+        ]);
+        Permission::updateOrCreate([
+            'module_id' => $moduleAppMenus->id,
+            'Name'      => 'Create Menu',
+            'slug'      => 'app.menus.create'
+        ]);
+        Permission::updateOrCreate([
+            'module_id' => $moduleAppMenus->id,
+            'Name'      => 'Edit Menu',
+            'slug'      => 'app.menus.edit'
+        ]);
+        Permission::updateOrCreate([
+            'module_id' => $moduleAppMenus->id,
+            'Name'      => 'Delete Menu',
+            'slug'      => 'app.menus.destroy'
+        ]);
     }
 }
